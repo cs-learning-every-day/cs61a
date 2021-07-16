@@ -172,6 +172,13 @@ def min_elements(T, lst):
     >>> min_elements(0, [1, 2, 3])
     0
     """
+    if T == 0:
+        return 0
+    result = []
+    for i in lst:
+        if T - i >= 0:
+            result.append(1 + min_elements(T-i, lst))
+    return min(result)
 
 
 if __name__ == "__main__":
