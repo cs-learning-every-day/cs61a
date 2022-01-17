@@ -15,6 +15,12 @@ def make_adder_inc(n):
     11
     """
     "*** YOUR CODE HERE ***"
+    def help(num):
+        nonlocal n
+        res = n + num
+        n += 1
+        return res
+    return help
 def make_fib():
     """Returns a function that returns the next Fibonacci number
     every time it is called.
@@ -39,6 +45,15 @@ def make_fib():
     True
     """
     "*** YOUR CODE HERE ***"
+    n1 = -1
+    n2 = 1
+    def helper():
+        nonlocal n1, n2
+        res = n1 + n2
+        n1 = n2
+        n2 = res
+        return res
+    return helper
 
 # Generators
 def naturals():
@@ -70,6 +85,8 @@ def scale(it, multiplier):
     [2, 4, 6, 8, 10]
     """
     "*** YOUR CODE HERE ***"
+    for item in it:
+        yield item * multiplier
 
 def hailstone(n):
     """
@@ -85,5 +102,12 @@ def hailstone(n):
     1
     """
     "*** YOUR CODE HERE ***"
+    yield int(n)
+    if n == 1:
+        return 
+    if n % 2 == 0:
+        yield from hailstone(n / 2)
+    else:
+        yield from hailstone(n * 3 + 1)
 
 
