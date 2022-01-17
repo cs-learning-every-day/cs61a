@@ -18,7 +18,7 @@
 - [X] HW 04
 - [X] Lab 06: Nonlocal, Iterators & Generators 
 - [ ] Ants
-- [ ] HW 05
+- [X] HW 05
 - [ ] Lab 07: Linked Lists, Mutable Trees, Object-Oriented Programming  Fri 3/13
 - [ ] Lab 08: Midterm Review
 - [ ] HW 06

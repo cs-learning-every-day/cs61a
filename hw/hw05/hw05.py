@@ -38,7 +38,37 @@ class VendingMachine:
     >>> w.vend()
     'Here is your soda.'
     """
-    "*** YOUR CODE HERE ***"
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+        self.funds = 0
+        self.stocks = 0
+
+    def vend(self):
+        if self.stocks == 0:
+            return 'Machine is out of stock.'
+        if self.funds < self.price:
+            return "You must add ${} more funds.".format(self.price - self.funds)
+        
+        self.stocks -= 1
+        changes = self.funds - self.price
+        self.funds = 0
+
+        if changes == 0:
+            return 'Here is your {}.'.format(self.name)
+        else:
+            return 'Here is your {} and ${} change.'.format(self.name, changes)
+
+    def add_funds(self, funds):
+        if self.stocks == 0:
+            return 'Machine is out of stock. Here is your ${}.'.format(funds)
+        else:
+            self.funds += funds
+            return 'Current balance: ${}'.format(self.funds)
+
+    def restock(self, stock):
+        self.stocks += stock
+        return 'Current {} stock: {}'.format(self.name, self.stocks)
 
 def preorder(t):
     """Return a list of the entries in this tree in the order that they
@@ -50,7 +80,10 @@ def preorder(t):
     >>> preorder(Tree(2, [Tree(4, [Tree(6)])]))
     [2, 4, 6]
     """
-    "*** YOUR CODE HERE ***"
+    res = [t.label]
+    for i in range(len(t.branches)):
+        res = res + preorder(t.branches[i])
+    return res
 
 def store_digits(n):
     """Stores the digits of a positive number n in a linked list.
@@ -63,7 +96,12 @@ def store_digits(n):
     >>> store_digits(876)
     Link(8, Link(7, Link(6)))
     """
-    "*** YOUR CODE HERE ***"
+    if n <= 9:
+        return Link(n)
+    n = str(n)    
+    head = Link(int(n[0]))
+    head.rest = store_digits(int(n[1:]))
+    return head
 
 def generate_paths(t, value):
     """Yields all possible paths from the root of t to a node with the label value
@@ -99,13 +137,13 @@ def generate_paths(t, value):
     >>> sorted(list(path_to_2))
     [[0, 2], [0, 2, 1, 2]]
     """
+    if t.label == value:
+        yield [t.label]
 
-    "*** YOUR CODE HERE ***"
-
-    for _______________ in _________________:
-        for _______________ in _________________:
-
-            "*** YOUR CODE HERE ***"
+    for b in t.branches:
+        gb = generate_paths(b, value)
+        for next in gb:
+            yield [t.label] + next
 
 ## Optional Questions
 def is_bst(t):
