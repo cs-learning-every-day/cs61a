@@ -2,8 +2,6 @@
 
 [CS 61A SP20](https://inst.eecs.berkeley.edu/~cs61a/sp20/)
 
-从disc6及以后都不做了，只做lab、project
-
 - [X] Lab 00: Getting Started
 - [X] HW 01 
 - [X] Lab 01: Variables & Functions, Control 
