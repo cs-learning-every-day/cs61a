@@ -1,6 +1,7 @@
 > python ok -q function name --local
 
 [CS 61A SP20](https://inst.eecs.berkeley.edu/~cs61a/sp20/)
+[课本中文翻译](https://wizardforcel.gitbooks.io/sicp-py/content/)
 
 - [X] Lab 00: Getting Started
 - [X] HW 01 
