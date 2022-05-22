@@ -1,6 +1,7 @@
 """CS 61A presents Ants Vs. SomeBees."""
 
 import random
+from sre_constants import MAX_REPEAT
 from ucb import main, interact, trace
 from collections import OrderedDict
 
@@ -165,6 +166,8 @@ class ThrowerAnt(Ant):
     damage = 1
     # ADD/OVERRIDE CLASS ATTRIBUTES HERE
     food_cost = 3
+    min_range = -float('inf')
+    max_range = float('inf')
 
     def nearest_bee(self, beehive):
         """Return the nearest Bee in a Place that is not the HIVE, connected to
@@ -173,7 +176,21 @@ class ThrowerAnt(Ant):
         This method returns None if there is no such Bee (or none in range).
         """
         # BEGIN Problem 3 and 4
-        return random_or_none(self.place.bees) # REPLACE THIS LINE
+        p = self.place
+        fire = False
+        bees = []
+        cur_disstance = 0
+        while p != beehive:
+            if cur_disstance > self.max_range: break
+            if len(p.bees) > 0 and cur_disstance >= self.min_range:
+                bees.extend(p.bees)
+                fire = True
+                break
+            p = p.entrance
+            cur_disstance += 1
+        if fire:
+            return bees[random.randint(0, len(bees) - 1)]
+        return None
         # END Problem 3 and 4
 
     def throw_at(self, target):
@@ -202,7 +219,9 @@ class ShortThrower(ThrowerAnt):
     food_cost = 2
     # OVERRIDE CLASS ATTRIBUTES HERE
     # BEGIN Problem 4
-    implemented = False   # Change to True to view in the GUI
+    implemented = True   # Change to True to view in the GUI
+    max_range = 3
+
     # END Problem 4
 
 class LongThrower(ThrowerAnt):
@@ -212,7 +231,8 @@ class LongThrower(ThrowerAnt):
     food_cost = 2
     # OVERRIDE CLASS ATTRIBUTES HERE
     # BEGIN Problem 4
-    implemented = False   # Change to True to view in the GUI
+    implemented = True   # Change to True to view in the GUI
+    min_range = 5
     # END Problem 4
 
 class FireAnt(Ant):
