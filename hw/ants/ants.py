@@ -108,6 +108,7 @@ class Ant(Insect):
     implemented = False  # Only implemented Ant classes should be instantiated
     food_cost = 0
     # ADD CLASS ATTRIBUTES HERE
+    blocks_path = True
 
     def __init__(self, armor=1):
         """Create an Ant with an ARMOR quantity."""
@@ -261,13 +262,12 @@ class FireAnt(Ant):
         """
         # BEGIN Problem 5
         cpy_bees = list(self.place.bees)
+        new_amount = amount
         if self.armor <= amount: 
-            amount += self.damage
+            new_amount += self.damage
         for b in cpy_bees:
-            b.armor -= amount
-            if b.armor <= 0:
-                b.remove_from(self.place)
-        Insect.reduce_armor(self, amount)
+            Insect.reduce_armor(b, new_amount)
+        Ant.reduce_armor(self, amount)
         # END Problem 5
 
 class HungryAnt(Ant):
@@ -310,13 +310,18 @@ class NinjaAnt(Ant):
     damage = 1
     food_cost = 5
     # OVERRIDE CLASS ATTRIBUTES HERE
+    blocks_path = False
     # BEGIN Problem 7
-    implemented = False   # Change to True to view in the GUI
+    implemented = True   # Change to True to view in the GUI
     # END Problem 7
 
     def action(self, gamestate):
         # BEGIN Problem 7
         "*** YOUR CODE HERE ***"
+        bees = self.place.bees
+        cpy_bees = list(bees)
+        for b in cpy_bees:
+            b.reduce_armor(self.damage)
         # END Problem 7
 
 # BEGIN Problem 8
@@ -468,7 +473,9 @@ class Bee(Insect):
         """Return True if this Bee cannot advance to the next Place."""
         # Phase 4: Special handling for NinjaAnt
         # BEGIN Problem 7
-        return self.place.ant is not None
+        if self.place.ant is None:
+            return False
+        return self.place.ant.blocks_path
         # END Problem 7
 
     def action(self, gamestate):
