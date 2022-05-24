@@ -7,20 +7,20 @@
 ### SP20
 
 - [X] Lab 00: Getting Started
-- [X] HW 01 
+- [X] Homework 1: Control
 - [X] Lab 01: Variables & Functions, Control 
-- [X] Hog
-- [X] HW 02 
+- [X] Project 1: Hog
+- [X] Homework 2: Higher Order Functions
 - [X] Lab 02: Higher-Order Functions, Lambda Expressions, Self Reference
-- [X] Hog Contest
+- [X] Optional Contest: Hog Strategy
 - [X] HW 03
 - [X] Lab 04: Recursion, Tree Recursion
-- [X] CATS 
+- [X] Project 2: CS 61A Autocorrected Typing Software 
 - [X] Lab 05: Python Lists, Data Abstraction, Trees
-- [X] HW 04
+- [X] Homework 4: Data Abstraction, Trees, Nonlocal
 - [X] Lab 06: Nonlocal, Iterators & Generators 
-- [X] Ants
-- [X] HW 05
+- [X] Project 3: Ants
+- [X] Homework 5: Linked Lists, Trees, and Generators
 - [ ] Lab 07: Linked Lists, Mutable Trees, Object-Oriented Programming
 - [ ] Lab 08: Midterm Review
 - [ ] HW 06
