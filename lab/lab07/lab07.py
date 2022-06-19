@@ -13,6 +13,20 @@ def link_to_list(link):
     []
     """
     "*** YOUR CODE HERE ***"
+    def iter():
+        res = []
+        cur = link
+        while cur is not Link.empty:
+            res.append(cur.first)
+            cur = cur.rest
+        return res
+
+    def recur(l):
+        if l is Link.empty:
+            return []
+        return [l.first] + recur(l.rest)
+
+    return recur(link)
 
 # Trees
 
@@ -26,6 +40,14 @@ def cumulative_mul(t):
     Tree(105, [Tree(15, [Tree(5)]), Tree(7)])
     """
     "*** YOUR CODE HERE ***"
+    if t.is_leaf():
+        return
+
+    for i in range(len(t.branches)):
+        cumulative_mul(t.branches[i])
+        t.label *= t.branches[i].label
+
+
 
 # Link List Class
 class Link:
