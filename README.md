@@ -21,7 +21,7 @@
 - [X] Lab 06: Nonlocal, Iterators & Generators 
 - [X] Project 3: Ants
 - [X] Homework 5: Linked Lists, Trees, and Generators
-- [ ] Lab 07: Linked Lists, Mutable Trees, Object-Oriented Programming
+- [X] Lab 07: Linked Lists, Mutable Trees, Object-Oriented Programming
 - [ ] Lab 08: Midterm Review
 - [ ] HW 06
 - [ ] Lab 09: Scheme, Scheme Lists
