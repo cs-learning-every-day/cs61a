@@ -23,7 +23,7 @@
 - [X] Homework 5: Linked Lists, Trees, and Generators
 - [X] Lab 07: Linked Lists, Mutable Trees, Object-Oriented Programming
 - [X] Lab 08: Midterm Review
-- [ ] HW 06
+- [X] HW 06
 - [ ] Lab 09: Scheme, Scheme Lists
 - [ ] HW 07 
 - [ ] Lab 10: Interpreters
