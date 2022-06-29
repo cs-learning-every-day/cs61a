@@ -1,7 +1,9 @@
 ;; Scheme ;;
 
 (define (over-or-under a b)
-  'YOUR-CODE-HERE
+  (cond ((= a b) 0)
+        ((< a b) -1)
+        (else 1))
 )
 
 ;;; Tests
@@ -13,7 +15,11 @@
 ; expect 0
 
 (define (filter-lst fn lst)
-  'YOUR-CODE-HERE
+  (if (null? lst)
+      nil
+      (if (fn (car lst))
+          (cons (car lst) (filter-lst fn (cdr lst)))
+          (filter-lst fn (cdr lst))))
 )
 
 ;;; Tests
@@ -23,7 +29,7 @@
 ; expect (0 2 8)
 
 (define (make-adder n)
-  'YOUR-CODE-HERE
+  (lambda (x) (+ x n))
 )
 
 ;;; Tests

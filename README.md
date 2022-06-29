@@ -3,6 +3,7 @@
 
 [CS 61A SP20](https://inst.eecs.berkeley.edu/~cs61a/sp20/)
 [课本中文翻译](https://wizardforcel.gitbooks.io/sicp-py/content/)
+[Scheme-builtins](https://inst.eecs.berkeley.edu/~cs61a/sp20/articles/scheme-builtins.html)
 
 ### SP20
 
@@ -24,7 +25,7 @@
 - [X] Lab 07: Linked Lists, Mutable Trees, Object-Oriented Programming
 - [X] Lab 08: Midterm Review
 - [X] HW 06
-- [ ] Lab 09: Scheme, Scheme Lists
+- [X] Lab 09: Scheme, Scheme Lists
 - [ ] HW 07 
 - [ ] Lab 10: Interpreters
 - [ ] Scheme
