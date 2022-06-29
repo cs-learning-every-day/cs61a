@@ -106,7 +106,10 @@ class Name(Expr):
         >>> print(Name('c').eval(env))
         None
         """
-        "*** YOUR CODE HERE ***"
+        if self.string in env:
+            return env[self.string]
+        else:
+            return None
 
     def __str__(self):
         return self.string
@@ -172,7 +175,10 @@ class CallExpr(Expr):
         >>> read('add(mul(3, 4), b)').eval(new_env)
         Number(14)
         """
-        "*** YOUR CODE HERE ***"
+        op = self.operator.eval(env)
+        args = [i.eval(env) for i in self.operands]
+        return op.apply(args)
+
 
     def __str__(self):
         function = str(self.operator)
@@ -281,7 +287,10 @@ class LambdaFunction(Value):
         if len(self.parameters) != len(arguments):
             raise TypeError("Oof! Cannot apply number {} to arguments {}".format(
                 comma_separated(self.parameters), comma_separated(arguments)))
-        "*** YOUR CODE HERE ***"
+        parent_copy = self.parent.copy()
+        parent_copy.update(zip(self.parameters, arguments))
+        return self.body.eval(parent_copy)
+        
 
     def __str__(self):
         definition = LambdaExpr(self.parameters, self.body)

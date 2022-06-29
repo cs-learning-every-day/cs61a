@@ -27,7 +27,7 @@
 - [X] HW 06
 - [X] Lab 09: Scheme, Scheme Lists
 - [X] HW 07 
-- [ ] Lab 10: Interpreters
+- [X] Lab 10: Interpreters
 - [ ] Scheme
 - [ ] HW 08 
 - [ ] Lab 11: SQL
