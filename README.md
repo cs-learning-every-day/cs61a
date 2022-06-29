@@ -26,7 +26,7 @@
 - [X] Lab 08: Midterm Review
 - [X] HW 06
 - [X] Lab 09: Scheme, Scheme Lists
-- [ ] HW 07 
+- [X] HW 07 
 - [ ] Lab 10: Interpreters
 - [ ] Scheme
 - [ ] HW 08 
