@@ -28,7 +28,7 @@
 - [X] Lab 09: Scheme, Scheme Lists
 - [X] HW 07 
 - [X] Lab 10: Interpreters
-- [ ] Scheme
+- [ ] Project 4: Scheme
 - [ ] HW 08 
 - [ ] Lab 11: SQL
 - [ ] Scheme Contest
