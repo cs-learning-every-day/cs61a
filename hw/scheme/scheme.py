@@ -71,7 +71,13 @@ def eval_all(expressions, env):
     2
     """
     # BEGIN PROBLEM 7
-    return scheme_eval(expressions.first, env) # change this line
+    if expressions is nil:
+        return None
+    p = expressions
+    while p.rest is not nil:
+        scheme_eval(p.first, env)
+        p = p.rest
+    return scheme_eval(p.first, env)
     # END PROBLEM 7
 
 ################
@@ -127,7 +133,14 @@ class Frame(object):
         if len(formals) != len(vals):
             raise SchemeError('Incorrect number of arguments to function call')
         # BEGIN PROBLEM 10
-        "*** YOUR CODE HERE ***"
+        f = Frame(self)
+        p = formals
+        v = vals
+        while p is not nil:
+            f.define(p.first, v.first)
+            p = p.rest
+            v = v.rest
+        return f
         # END PROBLEM 10
 
 ##############
@@ -195,7 +208,7 @@ class LambdaProcedure(Procedure):
         """Make a frame that binds my formal parameters to ARGS, a Scheme list
         of values, for a lexically-scoped call evaluated in environment ENV."""
         # BEGIN PROBLEM 11
-        "*** YOUR CODE HERE ***"
+        return self.env.make_child_frame(self.formals, args)
         # END PROBLEM 11
 
     def __str__(self):
@@ -258,7 +271,10 @@ def do_define_form(expressions, env):
         # END PROBLEM 5
     elif isinstance(target, Pair) and scheme_symbolp(target.first):
         # BEGIN PROBLEM 9
-        "*** YOUR CODE HERE ***"
+        validate_formals(target.rest)
+        f = LambdaProcedure(target.rest, expressions.rest, env) 
+        env.define(target.first, f)
+        return target.first
         # END PROBLEM 9
     else:
         bad_target = target.first if isinstance(target, Pair) else target
@@ -299,7 +315,8 @@ def do_lambda_form(expressions, env):
     formals = expressions.first
     validate_formals(formals)
     # BEGIN PROBLEM 8
-    "*** YOUR CODE HERE ***"
+    bodys = expressions.rest
+    return LambdaProcedure(formals, bodys, env)
     # END PROBLEM 8
 
 def do_if_form(expressions, env):
