@@ -11,7 +11,10 @@
 
 (define (draw)
   ; YOUR CODE HERE
-  (exitonclick))
+  (begin
+    (backward 3)
+    (circle 3))
+  )
 
 ; Please leave this last line alone.  You may add additional procedures above
 ; this line.
