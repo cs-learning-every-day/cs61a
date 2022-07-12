@@ -30,7 +30,7 @@
 - [X] Lab 10: Interpreters
 - [X] Project 4: Scheme
 - [X] HW 08 
-- [ ] Lab 11: SQL
+- [X] Lab 11: SQL
 - [ ] Scheme Contest
 - [ ] Lab 12: Final Review 
 - [ ] HW 09 
