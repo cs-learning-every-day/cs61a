@@ -32,7 +32,7 @@
 - [X] HW 08 
 - [X] Lab 11: SQL
 - [ ] Scheme Contest
-- [ ] Lab 12: Final Review 
+- [X] Lab 12: Final Review 
 - [X] HW 09 
 - [ ] HW 10
 
