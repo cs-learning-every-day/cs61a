@@ -33,7 +33,7 @@
 - [X] Lab 11: SQL
 - [ ] Scheme Contest
 - [ ] Lab 12: Final Review 
-- [ ] HW 09 
+- [X] HW 09 
 - [ ] HW 10
 
 ### SP22
